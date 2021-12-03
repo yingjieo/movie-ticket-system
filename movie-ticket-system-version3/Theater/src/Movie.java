@@ -13,15 +13,15 @@ public class Movie {
 		
 	}
 	
-	public string getName() {
+	public String getName() {
 		return name;
 	}
 	
-	public string getRating() {
+	public String getRating() {
 		return rating;
 	}
 	
-	public string getGenre() {
+	public String getGenre() {
 		return genre;
 	}
 	
