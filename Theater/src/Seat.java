@@ -18,6 +18,7 @@ public class Seat {
 			return false;
 		}
 		reservation[reservationNum] = t;
+		reservationNum++;
 		return true;
 	}
 	
@@ -27,6 +28,7 @@ public class Seat {
 		while (i < reservation.length) {
 			if (reservation[i] != null && reservation[i].equals(t)) {
 				reservation[i] = null;
+				reservationNum--;
 				return true;
 			}
 			i++;
