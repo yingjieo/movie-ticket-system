@@ -12,10 +12,17 @@ public class Seat {
 		reservationNum = 0;
 	}
 	
-	//add a reservation time interval, return true if successfully added, false if array is full
+	//add a reservation time interval, return true if successfully added, false if array is full or the time slot is already booked
 	public boolean addReservation(Time t) {
 		if (reservationNum == reservation.length) {
 			return false;
+		}
+		int i = 0;
+		while (i < reservation.length) {
+			if (reservation[i] != null && reservation[i].equals(t)) {
+				return false;
+			}
+			i++;
 		}
 		reservation[reservationNum] = t;
 		reservationNum++;
@@ -27,7 +34,13 @@ public class Seat {
 		int i = 0;
 		while (i < reservation.length) {
 			if (reservation[i] != null && reservation[i].equals(t)) {
-				reservation[i] = null;
+				//shift up the remaining reservations
+				int j = i;
+				while (j < reservation.length-1) {
+					reservation[j] = reservation[j+1];
+					j++;
+				}
+				reservation[j] = null;
 				reservationNum--;
 				return true;
 			}
