@@ -1,11 +1,11 @@
 
 //Time represents a time interval
 public class Time {
-	int month;
-	int date;
-	int time; //in terms of 24 hour, ex: 2:00 PM is represented with number 14
+	private int month;
+	private int date;
+	private int time; //in terms of 24 hour, ex: 2:00 PM is represented with number 14
 	//month, date, and time make up the start time of the time interval
-	int duration; //duration of the time interval in terms of hour, ex: 3 hour duration is represented with 3
+	private int duration; //duration of the time interval in terms of hour, ex: 3 hour duration is represented with 3
 	//minute and second are not considered
 	
 	public Time(int m, int d, int t, int du) {
