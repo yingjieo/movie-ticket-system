@@ -2,12 +2,12 @@
 public class Showtime {
 	private Movie movie;
 	private Time runtime;
-	private Theater theater;
+	private int theaterID;
 	
-	public Showtime(Movie m, Time rt, Theater t) {
+	public Showtime(Movie m, Time rt, int t) {
 		movie = m;
 		runtime = rt;
-		theater = t;
+		theaterID = t;
 	}
 	
 	public Movie getMovie() {
@@ -18,7 +18,7 @@ public class Showtime {
 		return runtime;
 	}
 	
-	public Theater getTheater() {
-		return theater;
+	public int getTheater() {
+		return theaterID;
 	}
 }
