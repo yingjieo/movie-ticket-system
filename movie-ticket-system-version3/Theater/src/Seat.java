@@ -1,21 +1,30 @@
 
 public class Seat {
 	private int ID;
-	private int theater;
+	private int theaterID;
 	private Time[] reservation;
 	private int reservationNum;
 	private static int MAX_SLOTS = 21;
 	
 	public Seat(int id, int t) {
 		ID = id;
-		theater = t;
+		theaterID = t;
 		reservation = new Time[MAX_SLOTS];
 		reservationNum = 0;
+	}
+	
+	public int getID() {
+		return ID;
+	}
+	
+	public int getTheater() {
+		return theaterID;
 	}
 	
 	public Time[] getReservation() {
 		return reservation;
 	}
+	
 	//add a reservation time interval, return true if successfully added, false if array is full or the time slot is already booked
 	public boolean addReservation(Time t) {
 		if (reservationNum == reservation.length) {
