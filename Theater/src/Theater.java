@@ -1,11 +1,13 @@
 
 public class Theater {
+	int ID;
 	int capacity;
-	Seat[] seats;
+	Seat[][] seats;
 	Time[] schedule;
 	Movie[] movieSchedule;
 	
-	public Theater(int c, Seat[] s) {
+	public Theater(int i, int c, Seat[][] s) {
+		ID = i;
 		capacity = c;
 		seats = s;
 		schedule = new Time[21];
@@ -13,3 +15,4 @@ public class Theater {
 	}
 	
 }
+
