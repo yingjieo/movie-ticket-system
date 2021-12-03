@@ -171,26 +171,5 @@ public class Database {
             }
         }
 
-        public static void main(String[] args) {
-            Theater theater1 = new Theater(1);
-            Theater theater2 = new Theater(2);
-            Theater theater3 = new Theater(3);
-            Theater theater4 = new Theater(4);
-            Theater theater5 = new Theater(5);
-            Theater theater6 = new Theater(6);
-
-            Movie movie1 = new Movie("Encanto", "11/24/2021", "Musical", "PG", "1:49");
-            Movie movie2 = new Movie("House of Gucci", "11/24/2021", "Drama", "R", "2:37");
-            Movie movie3 = new Movie("Resident Evil: Welcome to Raccoon City", "11/24/2021", "Horror", "R", "1:47");
-            Movie movie4 = new Movie("Ghostbusters: Afterlife", "11/19/2021", "Sci-Fi", "PG-13", "2:04");
-            Movie movie5 = new Movie("King Richard", "11/19/2021", "Drama", "PG-13", "2:24");
-            Movie movie6 = new Movie("Eternals", "11/05/2021", "SuperHero", "PG-13", "2:37");
-
-
-            Ticket example = new Ticket("G5", "4:30", "12/10", "Eternals",1);
-            System.out.println(movie2.Date);
-            System.out.println(theater1.SeatSlots[0][0][0]);
-        }
-
 }
 
