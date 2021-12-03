@@ -12,5 +12,21 @@ public class Movie {
 		length = l;
 		
 	}
+	
+	public string getName() {
+		return name;
+	}
+	
+	public string getRating() {
+		return rating;
+	}
+	
+	public string getGenre() {
+		return genre;
+	}
+	
+	public int getLength() {
+		return length;
+	}
 
 }
