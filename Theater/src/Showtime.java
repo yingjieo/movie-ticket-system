@@ -4,21 +4,25 @@ public class Showtime {
 	private Time runtime;
 	private int theaterID;
 	
-	public Showtime(Movie m, Time rt, int t) {
-		movie = m;
-		runtime = rt;
-		theaterID = t;
+	public Showtime(Movie movie, Time runtime, int theaterID) {
+		this.movie = movie;
+		this.runtime = runtime;
+		this.theaterID = theaterID;
 	}
 	
 	public Movie getMovie() {
-		return movie;
+		return this.movie;
 	}
 	
 	public Time getTime() {
-		return runtime;
+		return this.runtime;
 	}
 	
 	public int getTheater() {
-		return theaterID;
+		return this.theaterID;
+	}
+
+	public String toString() {
+		return movie+" "+runtime+" "+theaterID;
 	}
 }

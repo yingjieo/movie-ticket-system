@@ -1,6 +1,5 @@
 
 //Time represents a time interval
-//We are assuming no Time objects with different start time have durations overlapping with each other
 public class Time {
 	private int month;
 	private int date;
