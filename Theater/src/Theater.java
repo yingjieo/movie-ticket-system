@@ -70,6 +70,10 @@ public class Theater {
 		for (int i = 0; i < MAX_SHOWTIME_COUNT; i++) {
 			if (movieSchedule[i] != null) {
 				Time currentTime = movieSchedule[i].getTime();
+				if (currentTime.overlaps(st)) {
+					System.out.println("Time conflict exists in showtime. Cannot add.");
+					return false;
+				}
 				if (currentTime.equals(st)) {
 					System.out.println("Time slot already has a show.");
 					return false;
