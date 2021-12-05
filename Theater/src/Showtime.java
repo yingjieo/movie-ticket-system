@@ -2,12 +2,11 @@
 public class Showtime {
 	private Movie movie;
 	private Time runtime;
-	private int theaterID;
+	//private int theaterID;
 	
-	public Showtime(Movie m, Time rt, int t) {
+	public Showtime(Movie m, Time rt) {
 		movie = m;
 		runtime = rt;
-		theaterID = t;
 	}
 	
 	public Movie getMovie() {
@@ -18,7 +17,9 @@ public class Showtime {
 		return runtime;
 	}
 	
-	public int getTheater() {
-		return theaterID;
+	public void printShowtime() {
+		System.out.println(movie.getName());
+		runtime.printTime();
 	}
+	
 }

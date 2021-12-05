@@ -44,4 +44,8 @@ public class Time {
 			return false;
 		}
 	}
+	
+	public void printTime() {
+		System.out.println(this.month+"/"+this.date+" "+this.time+":00-"+this.getEndTime()+":00");
+	}
 }

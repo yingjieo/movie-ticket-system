@@ -27,5 +27,12 @@ public class Movie {
 	public int getLength() {
 		return length;
 	}
+	
+	public void printMovie() {
+		System.out.println(name);
+		System.out.println("Rating: " + rating);
+		System.out.println("Genre: " + genre);
+		System.out.println("Runtime: " + length + " min");
+	}
 
 }
