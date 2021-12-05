@@ -10,6 +10,7 @@ public class MovieTicketSystem {
 		Theater theater4 = new Theater(4);
 		Theater theater5 = new Theater(5);
 		Theater theater6 = new Theater(6);
+		int flag = 0;
 
 		while (true) {
 			System.out.println("Welcome to the Movie Theater!");
@@ -29,6 +30,52 @@ public class MovieTicketSystem {
 				System.out.println("Goodbye!");
 				break;
 			}
+			if (choice == 1) {
+				if (flag == 1){
+					System.out.println("User already logged in");
+					continue;
+				}
+				else{
+					System.out.println("Enter Email Address");
+					Scanner temp = new Scanner(System.in);
+					String emailaddress = temp.nextString();
+					int createID = ThreadLocalRandom.current().nextInt(1000, 10000);
+					System.out.print("Your account ID is: ");
+					System.out.println(createID);
+					Customer customer = new Customer (createID,emailaddress);
+					continue;
+				}
+			}
+			if (choice == 2){
+				if (flag == 1){
+					System.out.println("You are already logged in");
+					continue;
+				}
+				else{
+				System.out.println("Enter your account ID");
+				Scanner temp1 = new Scanner(System.in);
+				int customerID = temp1.nextint();
+				System.out.println("Enter Email Address");
+				Scanner temp2 = new Scanner(System.in);
+				String emailaddress = temp2.nextString();
+				if(customer.accountID == customerID && customer.email.equals(emailaddress)){
+					System.out.println("Succesful Login");
+					flag = 1;
+					continue;
+				}
+				else{
+					System.out.println("UserID or emailaddress is incorrect");
+					continue;
+				}
+
+			}
+
+		}
+			if (choice == 3){
+				flag = 0;
+				System.out.println("User is logged out")
+			}
+
 		}
 
 	}
