@@ -61,4 +61,14 @@ public class Seat {
 		System.out.println("Time not found.");
 		return false;
 	}
+	
+	//searches for whether or not time t is reserved, returns true if time t is booked, false otherwise
+	public boolean searchReservation(Time t) {
+		for(int i = 0; i < reservation.length; i++) {
+			if (reservation[i] != null && reservation[i].equals(t)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }

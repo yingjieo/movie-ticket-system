@@ -1,36 +1,31 @@
-
 public class Movie {
 	private String name;
 	private String rating;
 	private String genre;
 	private int length; // in minutes
 	
-	public Movie(String name, String rating, String genre, int length) {
-		this.name = name;
-		this.rating = rating;
-		this.genre = genre;
-		this.length = length;
+	public Movie(String n, String r, String g, int l) {
+		name = n;
+		rating = r;
+		genre = g;
+		length = l;
 		
 	}
 	
 	public String getName() {
-		return this.name;
+		return name;
 	}
 	
 	public String getRating() {
-		return this.rating;
+		return rating;
 	}
 	
 	public String getGenre() {
-		return this.genre;
+		return genre;
 	}
 	
 	public int getLength() {
-		return this.length;
+		return length;
 	}
 
-	void printMovie() {
-		System.out.println(name+" "+rating+" "+genre+" "+length);
-	}
 }
-

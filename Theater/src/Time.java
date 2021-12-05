@@ -1,5 +1,6 @@
 
 //Time represents a time interval
+//We are assuming no Time objects with different start time have durations overlapping with each other
 public class Time {
 	private int month;
 	private int date;
@@ -42,9 +43,5 @@ public class Time {
 		} else {
 			return false;
 		}
-	}
-
-	void printTime() {
-		System.out.println(this.month+"/"+this.date+" "+this.time+":00-"+this.getEndTime()+":00");
 	}
 }

@@ -2,23 +2,23 @@
 public class Showtime {
 	private Movie movie;
 	private Time runtime;
-
+	private int theaterID;
 	
-	public Showtime(Movie movie, Time runtime) {
-		this.movie = movie;
-		this.runtime = runtime;
+	public Showtime(Movie m, Time rt, int t) {
+		movie = m;
+		runtime = rt;
+		theaterID = t;
 	}
 	
 	public Movie getMovie() {
-		return this.movie;
+		return movie;
 	}
 	
 	public Time getTime() {
-		return this.runtime;
+		return runtime;
 	}
 	
-	void printShowTime() {
-		System.out.println(movie.getName());
-		System.out.println(runtime.toString());
+	public int getTheater() {
+		return theaterID;
 	}
 }

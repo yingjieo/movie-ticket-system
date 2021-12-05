@@ -7,31 +7,23 @@ public class Ticket {
 	private int cost; // in dollars
 	private static int DEFAULT_TICKET_COST = 10;
 	
-	public Ticket(int ticketID, Showtime showtime, Seat seat) {
-		this.ticketID = ticketID;
-		this.showtime = showtime;
-		this.seat = seat;
-		this.cost = DEFAULT_TICKET_COST;
+	public Ticket(int id, Showtime t, Seat s) {
+		ticketID = id;
+		showtime = t;
+		seat = s;
+		cost = DEFAULT_TICKET_COST;
 	}
 	
 	public Showtime getShowtime() {
-		return this.showtime;
+		return showtime;
 	}
 	
 	public Seat getSeat() {
-		return this.seat;
+		return seat;
 	}
 	
 	public int getCost() {
-		return this.cost;
-	}
-
-	void printTicket() {
-		System.out.println("Ticket " + ticketID);
-		this.showtime.printShowTime();
-		System.out.println("Theater " + this.seat.getTheater());
-		System.out.println("Seat " + this.seat.getID());
-		System.out.println("Cost: $" + this.cost);
+		return cost;
 	}
 
 }
