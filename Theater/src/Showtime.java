@@ -4,9 +4,9 @@ public class Showtime {
 	private Time runtime;
 	//private int theaterID;
 	
-	public Showtime(Movie m, Time rt) {
-		movie = m;
-		runtime = rt;
+	public Showtime(Movie movie, Time runtime) {
+		this.movie = movie;
+		this.runtime = runtime;
 	}
 	
 	public Movie getMovie() {

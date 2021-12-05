@@ -4,11 +4,11 @@ public class Movie {
 	private String genre;
 	private int length; // in minutes
 	
-	public Movie(String n, String r, String g, int l) {
-		name = n;
-		rating = r;
-		genre = g;
-		length = l;
+	public Movie(String name, String rating, String genre, int length) {
+		this.name = name;
+		this.rating = rating;
+		this.genre = genre;
+		this.length = length;
 		
 	}
 	

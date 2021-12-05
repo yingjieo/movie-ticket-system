@@ -1,33 +1,33 @@
 
 public class Theater {
-	private int ID;
+	private int theaterID;
 	private int capacity;
 	private Seat[][] seats;
 	private Showtime[] movieSchedule;
-	private int showTimeNum;
+	private int showtimeNum;
 	private static int SEAT_ROWS = 5;
 	private static int SEAT_COLS = 5;
 	private static int MAX_SHOWTIME_COUNT = 21;
 	
-	public Theater(int id) {
-		ID = id;
-		capacity = SEAT_ROWS * SEAT_COLS;
-		seats = new Seat[SEAT_ROWS][SEAT_COLS];
+	public Theater(int theaterID) {
+		this.theaterID = theaterID;
+		this.capacity = SEAT_ROWS * SEAT_COLS;
+		this.seats = new Seat[SEAT_ROWS][SEAT_COLS];
 		
 		int seatNum = 0;
 		for (int i = 0; i < SEAT_ROWS; i++) {
 			for (int j = 0; j < SEAT_COLS; j++) {
-				seats[i][j] = new Seat(seatNum, id);
+				this.seats[i][j] = new Seat(seatNum, theaterID);
 				seatNum++;
 			}
 		}
 		
-		movieSchedule = new Showtime[MAX_SHOWTIME_COUNT];
-		showTimeNum = 0;
+		this.movieSchedule = new Showtime[MAX_SHOWTIME_COUNT];
+		this.showtimeNum = 0;
 	}
 	
 	public int getID() {
-		return ID;
+		return theaterID;
 	}
 	
 	public int getCapacity() {
@@ -44,8 +44,8 @@ public class Theater {
 	
 	//adds showtime s, returns true if successfully added, false if movieschedule is full or if
 	//the time slot is already occupied
-	public boolean addShowTime(Showtime s) {
-		if (showTimeNum == MAX_SHOWTIME_COUNT) {
+	public boolean addShowtime(Showtime s) {
+		if (showtimeNum == MAX_SHOWTIME_COUNT) {
 			System.out.println("Max showtime reached.");
 			return false;
 		}
@@ -60,13 +60,13 @@ public class Theater {
 				}
 			}
 		}
-		movieSchedule[showTimeNum] = s;
-		showTimeNum++;
+		movieSchedule[showtimeNum] = s;
+		showtimeNum++;
 		return true;
 	}
 	
 	//deletes showtime s, returns true if successfully deleted, false if the showtime is not in the schedule
-	public boolean deleteShowTime(Showtime s) {
+	public boolean deleteShowtime(Showtime s) {
 		Time st = s.getTime();
 		for(int i = 0; i < MAX_SHOWTIME_COUNT; i++) {
 			if (movieSchedule[i] != null) {
@@ -78,7 +78,7 @@ public class Theater {
 						j++;
 					}
 					movieSchedule[j] = null;
-					showTimeNum--;
+					showtimeNum--;
 					return true;
 				}
 			}
@@ -92,7 +92,7 @@ public class Theater {
 	public void printSeats(Time t) {
 		for (int i = 0; i < SEAT_ROWS; i++) {
 			for (int j = 0; j < SEAT_COLS; j++) {
-				if (seats[i][j].searchReservation(t) == true) {
+				if (seats[i][j].hasReservation(t) == true) {
 					System.out.print(" X");
 				} else {
 					int id = seats[i][j].getID();

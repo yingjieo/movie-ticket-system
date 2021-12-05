@@ -7,11 +7,11 @@ public class Ticket {
 	private int cost; // in dollars
 	private static int DEFAULT_TICKET_COST = 10;
 	
-	public Ticket(int id, Showtime t, Seat s) {
-		ticketID = id;
-		showtime = t;
-		seat = s;
-		cost = DEFAULT_TICKET_COST;
+	public Ticket(int ticketID, Showtime showtime, Seat seat) {
+		this.ticketID = ticketID;
+		this.showtime = showtime;
+		this.seat = seat;
+		this.cost = DEFAULT_TICKET_COST;
 	}
 	
 	public Showtime getShowtime() {

@@ -9,11 +9,11 @@ public class Time {
 	private int duration; //duration of the time interval in terms of hour, ex: 3 hour duration is represented with 3
 	//minute and second are not considered
 	
-	public Time(int m, int d, int t, int du) {
-		month = m;
-	    date = d;
-	    time = t;
-	    duration = du;
+	public Time(int month, int date, int time, int duration) {
+		this.month = month;
+	    this.date = date;
+	    this.time = time;
+	    this.duration = duration;
 	}
 	
 	public int getMonth() {

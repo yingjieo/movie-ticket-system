@@ -6,11 +6,11 @@ public class Customer {
 	private String paymentMethod;
 	private static int MAX_ORDERS = 3; // max number of tickets a customer can order
 	
-	public Customer(int id, String e) {
-		accountID = id;
-		email = e;
-		ticketOrders = new Ticket[MAX_ORDERS];
-		paymentMethod = "";
+	public Customer(int id, String email) {
+		this.accountID = id;
+		this.email = email;
+		this.ticketOrders = new Ticket[MAX_ORDERS];
+		this.paymentMethod = "";
 		
 	}
 	

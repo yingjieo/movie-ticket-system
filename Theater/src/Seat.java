@@ -1,20 +1,20 @@
 
 public class Seat {
-	private int ID;
+	private int seatID;
 	private int theaterID;
 	private Time[] reservation;
 	private int reservationNum;
 	private static int MAX_SLOTS = 21;
 	
-	public Seat(int id, int t) {
-		ID = id;
-		theaterID = t;
-		reservation = new Time[MAX_SLOTS];
-		reservationNum = 0;
+	public Seat(int seatID, int theaterID) {
+		this.seatID = seatID;
+		this.theaterID = theaterID;
+		this.reservation = new Time[MAX_SLOTS];
+		this.reservationNum = 0;
 	}
 	
 	public int getID() {
-		return ID;
+		return seatID;
 	}
 	
 	public int getTheater() {
@@ -63,7 +63,7 @@ public class Seat {
 	}
 	
 	//searches for whether or not time t is reserved, returns true if time t is booked, false otherwise
-	public boolean searchReservation(Time t) {
+	public boolean hasReservation(Time t) {
 		for(int i = 0; i < reservation.length; i++) {
 			if (reservation[i] != null && reservation[i].equals(t)) {
 				return true;
