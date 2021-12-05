@@ -92,6 +92,24 @@ public class Theater {
 		return false;
 	}
 	
+	//searches for whether or not the theater has a specific showtime
+	public boolean hasShowtime(Showtime s) {
+		Movie m = s.getMovie();
+		String mname = m.getName();
+		Time t = s.getTime();
+		for(int i = 0; i < MAX_SHOWTIME_COUNT; i++) {
+			if (movieSchedule[i] != null) {
+				Movie currentm = movieSchedule[i].getMovie();
+				String currentmname = currentm.getName();
+				Time currentt = movieSchedule[i].getTime();
+				if (currentmname.equals(mname) && currentt.equals(t)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	//printSeats - lists all the seats in the theater at time t, taken seats are shown as "X,"
 	// available seats are shown as seatID
 	public void printSeats(Time t) {
