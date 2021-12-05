@@ -10,6 +10,9 @@ public class Theater {
 	private static int MAX_SHOWTIME_COUNT = 21;
 	
 	public Theater(int theaterID) {
+		if (theaterID < 0) {
+            throw new IllegalArgumentException("Theater ID cannot be negative");
+        }
 		this.theaterID = theaterID;
 		this.capacity = SEAT_ROWS * SEAT_COLS;
 		this.seats = new Seat[SEAT_ROWS][SEAT_COLS];
@@ -36,6 +39,10 @@ public class Theater {
 	
 	//returns a pointer to a specific seat in the theater
 	public Seat getSeat(int seatID) {
+		if (seatID < 0 || seatID >= capacity) {
+            System.out.println("Seat ID input is invalid");
+            return null;
+        }
 		return seats[seatID/SEAT_COLS][seatID%SEAT_COLS];
 	}
 	
@@ -50,6 +57,10 @@ public class Theater {
 	//adds showtime s, returns true if successfully added, false if movieschedule is full or if
 	//the time slot is already occupied
 	public boolean addShowtime(Showtime s) {
+		if (s == null) {
+			System.out.println("Showtime input is null.");
+            return false;
+        }
 		if (showtimeNum == MAX_SHOWTIME_COUNT) {
 			System.out.println("Max showtime reached.");
 			return false;
@@ -72,6 +83,10 @@ public class Theater {
 	
 	//deletes showtime s, returns true if successfully deleted, false if the showtime is not in the schedule
 	public boolean deleteShowtime(Showtime s) {
+		if (s == null) {
+			System.out.println("Showtime input is null.");
+            return false;
+        }
 		Time st = s.getTime();
 		for(int i = 0; i < MAX_SHOWTIME_COUNT; i++) {
 			if (movieSchedule[i] != null) {
@@ -94,6 +109,10 @@ public class Theater {
 	
 	//searches for whether or not the theater has a specific showtime
 	public boolean hasShowtime(Showtime s) {
+		if (s == null) {
+			System.out.println("Showtime input is null.");
+            return false;
+        }
 		Movie m = s.getMovie();
 		String mname = m.getName();
 		Time t = s.getTime();
@@ -113,6 +132,10 @@ public class Theater {
 	//printSeats - lists all the seats in the theater at time t, taken seats are shown as "X,"
 	// available seats are shown as seatID
 	public void printSeats(Time t) {
+		if (t == null) {
+			System.out.println("Time input is null.");
+			return;
+        }
 		System.out.println("Theater " + theaterID + " Seat Status");
 		for (int i = 0; i < SEAT_ROWS; i++) {
 			for (int j = 0; j < SEAT_COLS; j++) {

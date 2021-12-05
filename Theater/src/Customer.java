@@ -7,6 +7,9 @@ public class Customer {
 	private static int MAX_ORDERS = 3; // max number of tickets a customer can order
 	
 	public Customer(int id, String email) {
+		if (id < 0) {
+            throw new IllegalArgumentException("Account ID cannot be negative");
+        }
 		this.accountID = id;
 		this.email = email;
 		this.ticketOrders = new Ticket[MAX_ORDERS];

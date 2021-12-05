@@ -5,6 +5,12 @@ public class Showtime {
 	//private int theaterID;
 	
 	public Showtime(Movie movie, Time runtime) {
+		if (movie == null) {
+            throw new IllegalArgumentException("Movie in showtime cannot be null");
+        }        
+        if (runtime == null) {
+            throw new IllegalArgumentException("Runtime in showtime cannot be null");
+        }
 		this.movie = movie;
 		this.runtime = runtime;
 	}

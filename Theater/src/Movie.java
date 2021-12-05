@@ -5,6 +5,12 @@ public class Movie {
 	private int length; // in minutes
 	
 	public Movie(String name, String rating, String genre, int length) {
+		if (name == null) {
+            throw new IllegalArgumentException("Movie name cannot be null");
+        } 
+		if (length < 0) {
+            throw new IllegalArgumentException("Movie length cannot be negative");
+        }
 		this.name = name;
 		this.rating = rating;
 		this.genre = genre;
