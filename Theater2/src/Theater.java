@@ -87,9 +87,9 @@ public class Theater {
 		return false;
 	}
 	
-	//listSeats - lists all the seats in the theater at time t, taken seats are shown as "X,"
+	//printSeats - lists all the seats in the theater at time t, taken seats are shown as "X,"
 	// available seats are shown as seatID
-	public void listSeats(Time t) {
+	public void printSeats(Time t) {
 		for (int i = 0; i < SEAT_ROWS; i++) {
 			for (int j = 0; j < SEAT_COLS; j++) {
 				if (seats[i][j].searchReservation(t) == true) {
