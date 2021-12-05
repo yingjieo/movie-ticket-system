@@ -29,8 +29,8 @@ public class Movie {
 		return this.length;
 	}
 
-	public String toString() {
-		return name+" "+rating+" "+genre+" "+length;
+	void printMovie() {
+		System.out.println(name+" "+rating+" "+genre+" "+length);
 	}
 }
 

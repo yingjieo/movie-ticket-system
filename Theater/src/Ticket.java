@@ -26,8 +26,12 @@ public class Ticket {
 		return this.cost;
 	}
 
-	public String toString() {
-		return ticketID+" "+showtime+" "+seat+" "+cost;
+	void printTicket() {
+		System.out.println("Ticket " + ticketID);
+		this.showtime.printShowTime();
+		System.out.println("Theater " + this.seat.getTheater());
+		System.out.println("Seat " + this.seat.getID());
+		System.out.println("Cost: $" + this.cost);
 	}
 
 }
