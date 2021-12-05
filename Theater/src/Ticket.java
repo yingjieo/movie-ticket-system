@@ -25,5 +25,13 @@ public class Ticket {
 	public int getCost() {
 		return cost;
 	}
+	
+	public void printTicket() {
+		System.out.println("Ticket " + ticketID);
+		this.showtime.printShowtime();
+		System.out.println("Theater " + this.seat.getTheater());
+		System.out.println("Seat " + this.seat.getID());
+		System.out.println("Cost: $" + this.cost);
+	}
 
 }
