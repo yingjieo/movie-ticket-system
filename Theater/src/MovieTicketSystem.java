@@ -105,8 +105,14 @@ public class MovieTicketSystem {
 
 
 					continue;
+
 				} else if (choice == 5) {
-					
+					loggedInAccount.printTickets();
+					System.out.println("Type the Id of ticket to ticket to remove");
+					Scanner deletechoice = new Scanner(System.in);
+					int choice = deletechoice.nextInt();
+					loggedInAccount.cancelTicket(choice);
+
 					continue;
 				} else {
 					System.out.println("You have entered an invalid input");
