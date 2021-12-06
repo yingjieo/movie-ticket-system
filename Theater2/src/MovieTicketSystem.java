@@ -10,6 +10,12 @@ public class MovieTicketSystem {
 		Theater theater4 = new Theater(4);
 		Theater theater5 = new Theater(5);
 		Theater theater6 = new Theater(6);
+		Movie movie1 = new Movie("Encanto","PG", "Musical", 109);
+        Movie movie2 = new Movie("House of Gucci", "R", "Drama",  157);
+        Movie movie3 = new Movie("Resident Evil: Welcome to Raccoon City","R","Horror", 107);
+        Movie movie4 = new Movie("Ghostbusters: Afterlife", "PG-13", "Sci-Fi", 124);
+        Movie movie5 = new Movie("King Richard", "PG-13", "Drama",  144);
+        Movie movie6 = new Movie("Eternals", "PG-13", "SuperHero",  157);
 		int flag = 0;
 
 		while (true) {
@@ -73,9 +79,25 @@ public class MovieTicketSystem {
 		}
 			if (choice == 3){
 				flag = 0;
-				System.out.println("User is logged out")
+				System.out.println("User is logged out");
+				continue;
 			}
+			if (choice == 4){
+				System.out.println("Choose a Film");
+				System.out.println();
+				System.out.println("(1)" + movie1.toString());
+				System.out.println("(2)" + movie2.toString());
+				System.out.println("(3)" + movie3.toString());
+				System.out.println("(4)" + movie4.toString());
+				System.out.println("(5)" + movie5.toString());
+				System.out.println("(6)" + movie6.toString());
+				Scanner temp = new Scanner(System.in);
+				String moviechoice = temp.nextInt();
 
+
+
+
+			}
 		}
 
 	}

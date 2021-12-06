@@ -28,4 +28,7 @@ public class Movie {
 		return length;
 	}
 
+	public String toString() {
+		return "Title: " + getName() + "       Rating: " + getRating() + "Genre: " + getGenre() + "Length: " + String.valueOf(getLength()) + " minutes";
+	}
 }
