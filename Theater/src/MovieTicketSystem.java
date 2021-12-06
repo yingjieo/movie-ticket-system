@@ -4,18 +4,35 @@ public class MovieTicketSystem {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Theater theater1 = new Theater(1);
-		Theater theater2 = new Theater(2);
-		Theater theater3 = new Theater(3);
-		Theater theater4 = new Theater(4);
-		Theater theater5 = new Theater(5);
-		Theater theater6 = new Theater(6);
-		Movie movie1 = new Movie("Encanto","PG", "Musical", 109);
-        Movie movie2 = new Movie("House of Gucci", "R", "Drama",  157);
-        Movie movie3 = new Movie("Resident Evil: Welcome to Raccoon City","R","Horror", 107);
-        Movie movie4 = new Movie("Ghostbusters: Afterlife", "PG-13", "Sci-Fi", 124);
-        Movie movie5 = new Movie("King Richard", "PG-13", "Drama",  144);
-        Movie movie6 = new Movie("Eternals", "PG-13", "SuperHero",  157);
+		Theater[] theaters = new Theater[6];
+		theaters[0] = new Theater(1);
+		theaters[1] = new Theater(2);
+		theaters[2] = new Theater(3);
+		theaters[3] = new Theater(4);
+		theaters[4] = new Theater(5);
+		theaters[5] = new Theater(6);
+		
+		Movie[] movies = new Movie[6];
+		movies[0] = new Movie("Encanto","PG", "Musical", 109);
+        movies[1] = new Movie("House of Gucci", "R", "Drama",  157);
+        movies[2] = new Movie("Resident Evil: Welcome to Raccoon City","R","Horror", 107);
+        movies[3] = new Movie("Ghostbusters: Afterlife", "PG-13", "Sci-Fi", 124);
+        movies[4] = new Movie("King Richard", "PG-13", "Drama",  144);
+        movies[5] = new Movie("Eternals", "PG-13", "SuperHero",  157);
+        
+        for (int i = 0; i < 6; i++) {
+        	for (int j=0; j < 7; j++) {
+        		Time newTime = new Time(12, 1+j, 15, 0, movies[i].getLength());
+                Showtime newShowtime = new Showtime(movies[i], newTime);
+                theaters[i].addShowtime(newShowtime);
+                newTime = new Time(12, 1+j, 18, 0, movies[i].getLength());
+                newShowtime = new Showtime(movies[i], newTime);
+                theaters[i].addShowtime(newShowtime);
+                newTime = new Time(12, 1+j, 21, 0, movies[i].getLength());
+                newShowtime = new Showtime(movies[i], newTime);
+                theaters[i].addShowtime(newShowtime);
+        	}
+        }
 		int flag = 0;
 		int accountCount = 0;
 		int MAX_ACCOUNT_NUM = 100;
