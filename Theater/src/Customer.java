@@ -4,6 +4,7 @@ public class Customer {
 	private String email;
 	private Ticket[] ticketOrders;
 	private String paymentMethod;
+	private int orderNum;
 	private static int MAX_ORDERS = 3; // max number of tickets a customer can order
 	
 	public Customer(int id, String email) {
@@ -14,6 +15,7 @@ public class Customer {
 		this.email = email;
 		this.ticketOrders = new Ticket[MAX_ORDERS];
 		this.paymentMethod = "";
+		this.orderNum = 0;
 		
 	}
 	
@@ -46,11 +48,62 @@ public class Customer {
 		return true;
 	}
 	
-	public boolean orderTicket() {
+	public boolean orderTicket(Showtime showtime, Seat seat) {
+		if (showtime == null) {
+			System.out.println("Showtime input is null.");
+            return false;
+        }
+		if (seat == null) {
+			System.out.println("Seat input is null.");
+            return false;
+        }
+		Time time = showtime.getTime();
+		if (seat.addReservation(time)) {
+			Ticket newTicket = new Ticket(orderNum, showtime, seat);
+			ticketOrders[orderNum] = newTicket;
+			orderNum++;
+			return true;
+		}
 		return false;
 	}
 	
-	public boolean cancelTicket() {
+	public boolean cancelTicket(int ticketID) {
+		if (ticketID < 0 || ticketID >= ticketOrders.length) {
+			System.out.println("TicketID is invalid.");
+            return false;
+        }
+		Ticket ticket = ticketOrders[ticketID];
+		if (ticket == null) {
+			System.out.println("TicketID is invalid.");
+            return false;
+		}
+		Showtime showtime = ticket.getShowtime();
+		Seat seat = ticket.getSeat();
+		Time time = showtime.getTime();
+		if (seat.deleteReservation(time)) {
+			for(int i = 0; i < ticketOrders.length; i++) {
+				if (i == ticketID) {
+					//shift up the remaining tickets
+					int j = i;
+					while (j < ticketOrders.length-1) {
+						ticketOrders[j] = ticketOrders[j+1];
+						j++;
+					}
+					ticketOrders[j] = null;
+					orderNum--;
+					return true;
+				}
+			}
+		}
 		return false;
+	}
+	
+	public void printTickets() {
+		System.out.println("Account " + accountID + " Ticket Orders");
+		for (int i = 0; i < ticketOrders.length; i++) {
+			if (ticketOrders[i] != null) {
+				ticketOrders[i].printTicket();
+			}
+		}
 	}
 }
