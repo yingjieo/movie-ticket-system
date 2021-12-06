@@ -33,85 +33,90 @@ public class MovieTicketSystem {
 			System.out.println("(5) Cancel Ticket Order");
 			System.out.println("(0) Quit");
 			
-			Scanner input = new Scanner(System.in);
-			int choice = input.nextInt();
-			
-			if (choice == 0) {
-				System.out.println("Goodbye!");
-				break;
-			} else if (choice == 1) {
-				if (flag == 1){
-					System.out.println("User already logged in");
-					continue;
-				}
-				else{
-					System.out.println("Enter Email Address: ");
-					Scanner temp = new Scanner(System.in);
-					String emailaddress = temp.nextLine();
-					int createID = accountCount;
-					System.out.print("Your account ID is: ");
-					System.out.println(createID);
-					accountList[createID] = new Customer (createID,emailaddress);
-					accountCount++;
-					continue;
-				}
-			} else if (choice == 2){
-				if (flag == 1){
-					System.out.println("You are already logged in");
-					continue;
-				}
-				else{
-					System.out.println("Enter your account ID: ");
-					Scanner temp1 = new Scanner(System.in);
-					int customerID = temp1.nextInt();
-					if (customerID < 0 || customerID >= MAX_ACCOUNT_NUM || accountList[customerID] == null) {
-						System.out.println("Invalid account ID.");
-						continue;
-					}
-					System.out.println("Enter Email Address: ");
-					Scanner temp2 = new Scanner(System.in);
-					String emailaddress = temp2.nextLine();
-					String validemail = accountList[customerID].getEmail();
-					if(validemail.equals(emailaddress)){
-						System.out.println("Succesful Login");
-						flag = 1;
-						loggedInAccount = accountList[customerID];
+			try {
+				Scanner input = new Scanner(System.in);
+				int choice = input.nextInt();
+				if (choice == 0) {
+					System.out.println("Thank you for using the Movie Theater. Goodbye!");
+					break;
+				} else if (choice == 1) {
+					if (flag == 1){
+						System.out.println("User already logged in");
 						continue;
 					}
 					else{
-						System.out.println("UserID or emailaddress is incorrect");
+						System.out.println("Enter Email Address: ");
+						Scanner temp = new Scanner(System.in);
+						String emailaddress = temp.nextLine();
+						int createID = accountCount;
+						System.out.print("Your account ID is: ");
+						System.out.println(createID);
+						accountList[createID] = new Customer (createID,emailaddress);
+						accountCount++;
 						continue;
 					}
+				} else if (choice == 2){
+					if (flag == 1){
+						System.out.println("You are already logged in");
+						continue;
+					}
+					else{
+						System.out.println("Enter your account ID: ");
+						Scanner temp1 = new Scanner(System.in);
+						int customerID = temp1.nextInt();
+						if (customerID < 0 || customerID >= MAX_ACCOUNT_NUM || accountList[customerID] == null) {
+							System.out.println("Invalid account ID.");
+							continue;
+						}
+						System.out.println("Enter Email Address: ");
+						Scanner temp2 = new Scanner(System.in);
+						String emailaddress = temp2.nextLine();
+						String validemail = accountList[customerID].getEmail();
+						if(validemail.equals(emailaddress)){
+							System.out.println("Succesful Login");
+							flag = 1;
+							loggedInAccount = accountList[customerID];
+							continue;
+						}
+						else{
+							System.out.println("UserID or emailaddress is incorrect");
+							continue;
+						}
 
+					}
+
+				} else if (choice == 3){
+					flag = 0;
+					loggedInAccount = null;
+					System.out.println("User is logged out");
+					continue;
+				} else if (choice == 4){
+					System.out.println("Choose a Film");
+					System.out.println();
+					System.out.println("(1)" + movie1.toString());
+					System.out.println("(2)" + movie2.toString());
+					System.out.println("(3)" + movie3.toString());
+					System.out.println("(4)" + movie4.toString());
+					System.out.println("(5)" + movie5.toString());
+					System.out.println("(6)" + movie6.toString());
+					Scanner temp = new Scanner(System.in);
+					String moviechoice = temp.nextLine();
+
+
+
+					continue;
+				} else if (choice == 5) {
+					
+					continue;
+				} else {
+					System.out.println("You have entered an invalid input");
+					continue;
 				}
-
-			} else if (choice == 3){
-				flag = 0;
-				loggedInAccount = null;
-				System.out.println("User is logged out");
+			} catch (Exception e) {
+				System.out.println("You have entered an invalid input");
 				continue;
-			} else if (choice == 4){
-				System.out.println("Choose a Film");
-				System.out.println();
-				System.out.println("(1)" + movie1.toString());
-				System.out.println("(2)" + movie2.toString());
-				System.out.println("(3)" + movie3.toString());
-				System.out.println("(4)" + movie4.toString());
-				System.out.println("(5)" + movie5.toString());
-				System.out.println("(6)" + movie6.toString());
-				Scanner temp = new Scanner(System.in);
-				String moviechoice = temp.nextLine();
-
-
-
-				continue;
-			} else if (choice == 5) {
-				
-				continue;
-			} else {
-				System.out.println("Invalid Choice.");
-				break;
 			}
+
 		}
 
 	}
