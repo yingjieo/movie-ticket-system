@@ -163,6 +163,7 @@ public class Theater {
 		System.out.println("Theater " + theaterID + " Movie Schedule");
 		for (int i = 0; i < MAX_SHOWTIME_COUNT; i++) {
 			if (movieSchedule[i] != null) {
+				System.out.print((i + 1) + " ");
 				movieSchedule[i].printShowtime();
 			}
 		}

@@ -3,6 +3,8 @@ public class Movie {
 	private String rating;
 	private String genre;
 	private int length; // in minutes
+	private float boxOffice;
+	private int ticketSales;
 	
 	public Movie(String name, String rating, String genre, int length) {
 		if (name == null) {
@@ -15,6 +17,8 @@ public class Movie {
 		this.rating = rating;
 		this.genre = genre;
 		this.length = length;
+		this.boxOffice = 0;
+		this.ticketSales = 0;
 		
 	}
 	
@@ -32,6 +36,19 @@ public class Movie {
 	
 	public int getLength() {
 		return length;
+	}
+
+	public float getBoxOffice() {
+		return boxOffice;
+	}
+	
+	public void addProfit(float amount) {
+		boxOffice += amount;
+		ticketSales = (int)boxOffice/10;
+	}
+
+	public int ticketSales() {
+		return ticketSales;
 	}
 	
 	public void printMovie() {

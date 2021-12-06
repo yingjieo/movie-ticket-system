@@ -11,16 +11,16 @@ public class MovieTicketSystem {
 		theaters[3] = new Theater(4);
 		theaters[4] = new Theater(5);
 		theaters[5] = new Theater(6);
-		
+
 		Movie[] movies = new Movie[6];
-		movies[0] = new Movie("Encanto","PG", "Musical", 109);
+	    movies[0] = new Movie("Encanto","PG", "Musical", 109);
         movies[1] = new Movie("House of Gucci", "R", "Drama",  157);
         movies[2] = new Movie("Resident Evil: Welcome to Raccoon City","R","Horror", 107);
         movies[3] = new Movie("Ghostbusters: Afterlife", "PG-13", "Sci-Fi", 124);
         movies[4] = new Movie("King Richard", "PG-13", "Drama",  144);
         movies[5] = new Movie("Eternals", "PG-13", "SuperHero",  157);
-        
-        for (int i = 0; i < 6; i++) {
+
+		for (int i = 0; i < 6; i++) {
         	for (int j=0; j < 7; j++) {
         		Time newTime = new Time(12, 1+j, 15, 0, movies[i].getLength());
                 Showtime newShowtime = new Showtime(movies[i], newTime);
@@ -33,6 +33,7 @@ public class MovieTicketSystem {
                 theaters[i].addShowtime(newShowtime);
         	}
         }
+
 		int flag = 0;
 		int accountCount = 0;
 		int MAX_ACCOUNT_NUM = 100;
@@ -96,7 +97,7 @@ public class MovieTicketSystem {
 							continue;
 						}
 						else{
-							System.out.println("UserID or emailaddress is incorrect");
+							System.out.println("UserID or email address is incorrect");
 							continue;
 						}
 
@@ -110,26 +111,36 @@ public class MovieTicketSystem {
 				} else if (choice == 4){
 					System.out.println("Choose a Film");
 					System.out.println();
-					System.out.println("(1)" + movie1.toString());
-					System.out.println("(2)" + movie2.toString());
-					System.out.println("(3)" + movie3.toString());
-					System.out.println("(4)" + movie4.toString());
-					System.out.println("(5)" + movie5.toString());
-					System.out.println("(6)" + movie6.toString());
-					Scanner temp = new Scanner(System.in);
-					String moviechoice = temp.nextLine();
-
-
-
+					for (int i = 0; i < 6; i++) {
+						System.out.print((i) + ") ");
+						movies[i].printMovie();
+					}
+				
+					Scanner temp3 = new Scanner(System.in);
+					int moviechoice = temp3.nextInt();
+					theaters[moviechoice].printSchedule();
+					System.out.println("Choose a show time");
+					Scanner temp4 = new Scanner(System.in);
+					int showtime = temp4.nextInt();
+					Showtime[] showtimes = theaters[moviechoice].getSchedule();
+					Time time = showtimes[showtime].getTime();
+					System.out.println("Choose a seat");
+					theaters[moviechoice].printSeats(time);
+					Scanner temp5 = new Scanner(System.in);
+					int seat = temp5.nextInt();
+					Seat orderedseat = theaters[moviechoice].getSeat(seat);
+					if (loggedInAccount.orderTicket(showtimes[showtime], orderedseat)) {
+						movies[moviechoice].addProfit(10);
+					}
 					continue;
 
 				} else if (choice == 5) {
 					loggedInAccount.printTickets();
 					System.out.println("Type the Id of ticket to ticket to remove");
 					Scanner deletechoice = new Scanner(System.in);
-					int choice = deletechoice.nextInt();
+					choice = deletechoice.nextInt();
 					loggedInAccount.cancelTicket(choice);
-
+	
 					continue;
 				} else {
 					System.out.println("You have entered an invalid input");

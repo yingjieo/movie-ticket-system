@@ -1,4 +1,3 @@
-
 //Time represents a time interval
 //We pretend every month is 30 days here
 public class Time {

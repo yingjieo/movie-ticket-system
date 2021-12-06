@@ -62,8 +62,10 @@ public class Customer {
 			Ticket newTicket = new Ticket(orderNum, showtime, seat);
 			ticketOrders[orderNum] = newTicket;
 			orderNum++;
+			System.out.println("Purchase succcessful");
 			return true;
 		}
+		System.out.println("Purchase failed");
 		return false;
 	}
 	
@@ -84,6 +86,8 @@ public class Customer {
 			for(int i = 0; i < ticketOrders.length; i++) {
 				if (i == ticketID) {
 					//shift up the remaining tickets
+					Movie movie = showtime.getMovie();
+					movie.addProfit(-10);
 					int j = i;
 					while (j < ticketOrders.length-1) {
 						ticketOrders[j] = ticketOrders[j+1];
