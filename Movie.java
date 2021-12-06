@@ -17,6 +17,8 @@ public class Movie {
 		this.rating = rating;
 		this.genre = genre;
 		this.length = length;
+		this.boxOffice = 0.0;
+		this.numSold = 0;
 		
 	}
 	
