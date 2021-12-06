@@ -4,6 +4,7 @@ public class Movie {
 	private String genre;
 	private int length; // in minutes
 	private float boxOffice;
+	private int numSold;
 	
 	public Movie(String name, String rating, String genre, int length) {
 		if (name == null) {
@@ -39,8 +40,13 @@ public class Movie {
 		return boxOffice;
 	}
 	
+	public int getNumSold() {
+		return numSold;
+	}
+	
 	public void addProfit(float amount) {
 		boxOffice += amount;
+		numSold++;
 	}
 	
 	public void printMovie() {
