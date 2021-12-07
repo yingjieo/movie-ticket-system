@@ -24,14 +24,14 @@ After logging in with this account, employees can view the ticket sales and boxo
 <br>
 Customer <br>
 1. Register an account <br>
-Press the number key 1. The user will be prompt to enter their email. After the email is entered, the user will receive an account ID. Please take note of the ID you received for log in. <br>
+Press the number key 1. The user will be prompted to enter their email. After the email is entered, the user will receive an account ID. Please take note of the ID you received for log in. <br>
 2. Login <br>
 Press the number key 2. The user will need to enter their account ID and the email they used to register to successfully login.
 3. Logout <br>
 Press the number key 3. The user will be logged out.
 4. Purchase Ticket <br>
-The user must be logged in before they can start purchasing. <br>
-Press the number key 4. The user will be prompt to enter the number that corresponds to the movie they would like to watch. Next, the user will be prompt to enter the number that corresponds to the showtime of their choice. Finally, the user will have access to the seat layout of a theater. The unavailable seats will be marked with X. The user must enter the number of an available seat to complete the purchase. <br>
+The user must be logged in before they can start the purchase. <br>
+Press the number key 4. The user will be prompted to enter the number that corresponds to the movie they would like to watch. Next, the user will be prompted to enter the number that corresponds to the showtime of their choice. Finally, the user will have access to the seat layout of a theater. The unavailable seats will be marked with X. The user must enter the number of an available seat to complete the purchase. <br>
 5. Cancel Ticket <br>
 The user must be logged in before they can cancel a ticket. <br>
 Press the number key 5. The user will be able to view the list of tickets they have purchased. The user must enter the ticket number they would like to cancel. <br>
