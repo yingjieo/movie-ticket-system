@@ -27,6 +27,10 @@ public class Customer {
 		return email;
 	}
 	
+	public int getOrderNum() {
+		return orderNum;
+	}
+	
 	public boolean updatePaymentMethod(String paymentMethod) {
 		// customer can update payment method. returns true if valid payment method added
 		String[] validPaymentMethods = {"credit", "debit"};
@@ -57,6 +61,10 @@ public class Customer {
 			System.out.println("Seat input is null.");
             return false;
         }
+		if (orderNum >= MAX_ORDERS) {
+			System.out.println("You cannot buy any more ticket");
+			return false;
+		}
 		Time time = showtime.getTime();
 		if (seat.addReservation(time)) {
 			Ticket newTicket = new Ticket(orderNum, showtime, seat);
