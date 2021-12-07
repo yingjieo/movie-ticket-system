@@ -1,3 +1,6 @@
+/*
+ * The Time class, a helper class used to help better organize the time
+ */
 //Time represents a time interval
 //We pretend every month is 30 days here
 public class Time {

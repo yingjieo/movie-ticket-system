@@ -1,3 +1,7 @@
+/*
+ * The main class, which represents the MovieTicketSystem that users will interact with
+ * The program is run from here. 
+ */
 import java.util.Scanner;
 
 public class MovieTicketSystem {

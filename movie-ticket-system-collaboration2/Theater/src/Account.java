@@ -1,4 +1,10 @@
-
+/*
+ * The Account class, which represents the customer and employee
+ * Accounts are used to access the theater's features, such as ordering a ticket.
+ * To register an account, the user needs an email. They are automatically assigned an ID after the account is created.
+ * The Account class also keeps tracks of the account's ticket orders.
+ * Employees have special accounts which allow them to access movie sales records.
+*/
 public class Account {
 	private int accountID;
 	private String email;
@@ -40,6 +46,13 @@ public class Account {
 		return true;
 	}
 	
+	/*
+	 * Ordering a ticket
+	 * When a valid input is given, the system checks if the account does not already have a max number of ticket orders.
+	 * Returns false if the purchase failed, such as invalid input, max number of tickets bought,
+	 * or the seat chosen has already been reserved (this is checked in seat.addReservation()).
+	 * Returns true if the purchase was successful.
+	 */
 	public boolean orderTicket(Showtime showtime, Seat seat) {
 		if (showtime == null) {
 			System.out.println("Showtime input is null.");
@@ -65,6 +78,12 @@ public class Account {
 		return false;
 	}
 	
+	/*
+	 * Cancel an order
+	 * User enters the ID of the ticket they wish to cancel.
+	 * Returns false if the ticket cancellation failed.
+	 * Returns true if ticket cancellation was a success.
+	 */
 	public boolean cancelTicket(int ticketID) {
 		if (ticketID < 0 || ticketID >= ticketOrders.length) {
 			System.out.println("TicketID is invalid.");
@@ -100,6 +119,9 @@ public class Account {
 		return false;
 	}
 	
+	/*
+	 * Prints information of all ticket orders on the account
+	 */
 	public void printTickets() {
 		System.out.println("Account " + accountID + " Ticket Orders");
 		for (int i = 0; i < ticketOrders.length; i++) {

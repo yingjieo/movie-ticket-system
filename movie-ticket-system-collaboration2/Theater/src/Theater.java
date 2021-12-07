@@ -1,3 +1,8 @@
+/*
+ * The Theater class, representing the different showrooms in which the customer can watch a movie
+ * The theater stores a list of seats that are located in that theater, as well as the schedule of movies set to show in the theater.
+ * There are numerous of these smaller theaters in the overall movie theater.
+ */
 public class Theater {
 	private int theaterID;
 	private int capacity;

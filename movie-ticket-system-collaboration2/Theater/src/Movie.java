@@ -1,3 +1,9 @@
+/*
+ * The Movie class, which represents the movies being shown at the theater
+ * Stores a movie's basic information, as well as the amount of money they have made (boxOffice)
+ * and the number of tickets sold.
+ */
+
 public class Movie {
 	private String name;
 	private String rating;
@@ -43,6 +49,9 @@ public class Movie {
 		return boxOffice;
 	}
 	
+	/*
+	 * Adds to the boxOffice when a ticket is bought
+	 */
 	public void addProfit(float amount) {
 		boxOffice += amount;
 		ticketSales = (int)boxOffice/DEFAULT_TICKET_COST;
@@ -52,6 +61,9 @@ public class Movie {
 		return ticketSales;
 	}
 	
+	/*
+	 * Prints the movie's basic information
+	 */
 	public void printMovie() {
 		System.out.println(name);
 		System.out.println("Rating: " + rating);

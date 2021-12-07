@@ -1,7 +1,10 @@
+/*
+ * The Showtime class, representing a schedule spot
+ * This class consolidates the movie and the time it is being shown.
+ */
 public class Showtime {
 	private Movie movie;
 	private Time runtime;
-	//private int theaterID;
 	
 	public Showtime(Movie movie, Time runtime) {
 		if (movie == null) {
@@ -22,6 +25,7 @@ public class Showtime {
 		return runtime;
 	}
 	
+	// prints the showtime
 	public void printShowtime() {
 		System.out.println(movie.getName());
 		runtime.printTime();
