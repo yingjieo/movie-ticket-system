@@ -1,4 +1,3 @@
-
 public class Seat {
 	private int seatID;
 	private int theaterID;

@@ -1,4 +1,3 @@
-
 public class Showtime {
 	private Movie movie;
 	private Time runtime;

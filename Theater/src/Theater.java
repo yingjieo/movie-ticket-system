@@ -1,4 +1,3 @@
-
 public class Theater {
 	private int theaterID;
 	private int capacity;
@@ -52,6 +51,10 @@ public class Theater {
 	
 	public Showtime[] getSchedule() {
 		return movieSchedule;
+	}
+	
+	public int getShowtimeNum() {
+		return showtimeNum;
 	}
 	
 	//adds showtime s, returns true if successfully added, false if movieschedule is full or if
@@ -163,10 +166,10 @@ public class Theater {
 		System.out.println("Theater " + theaterID + " Movie Schedule");
 		for (int i = 0; i < MAX_SHOWTIME_COUNT; i++) {
 			if (movieSchedule[i] != null) {
-				System.out.print((i + 1) + " ");
+				System.out.print(i + ") ");
 				movieSchedule[i].printShowtime();
+				System.out.println();
 			}
 		}
 	}
 }
-

@@ -95,10 +95,12 @@ public class Customer {
 					}
 					ticketOrders[j] = null;
 					orderNum--;
+					System.out.println("The ticket is successfully canceled");
 					return true;
 				}
 			}
 		}
+		System.out.println("Ticket ID is invalid");
 		return false;
 	}
 	
@@ -107,6 +109,7 @@ public class Customer {
 		for (int i = 0; i < ticketOrders.length; i++) {
 			if (ticketOrders[i] != null) {
 				ticketOrders[i].printTicket();
+				System.out.println();
 			}
 		}
 	}

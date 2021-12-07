@@ -47,7 +47,7 @@ public class Movie {
 		ticketSales = (int)boxOffice/10;
 	}
 
-	public int ticketSales() {
+	public int getticketSales() {
 		return ticketSales;
 	}
 	
