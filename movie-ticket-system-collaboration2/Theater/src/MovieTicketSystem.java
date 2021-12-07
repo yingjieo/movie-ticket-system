@@ -233,7 +233,7 @@ public class MovieTicketSystem {
 					movies[moviechoice].printMovie();
 					System.out.println("Total tickets sold: " + movies[moviechoice].getTicketSales());
 					System.out.println("Total box office: " + movies[moviechoice].getBoxOffice());
-
+					continue;
 				}
 				else {
 					System.out.println("You have entered an invalid input");
