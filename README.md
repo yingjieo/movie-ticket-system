@@ -5,3 +5,5 @@ Employee ID: 0
 Employee email: admin@gmail.com
 
 All customer accounts will start at ID 1.
+
+Constraint: Each theater can only play one movie.
