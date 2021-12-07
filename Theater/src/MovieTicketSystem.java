@@ -162,6 +162,7 @@ public class MovieTicketSystem {
 						Time time = showtimes[showtimechoice].getTime();
 						System.out.println();
 						theaters[moviechoice].printSeats(time);
+						System.out.println("Seats marked with X are not available");
 						System.out.print("Please choose a seat from above (Enter numbers only): ");
 						Scanner temp5 = new Scanner(System.in);
 						int seatchoice = temp5.nextInt();
