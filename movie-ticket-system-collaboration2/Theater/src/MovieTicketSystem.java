@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class MovieTicketSystem {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		Theater[] theaters = new Theater[6]; // initialize theaters
 		theaters[0] = new Theater(1);
 		theaters[1] = new Theater(2);
@@ -62,6 +62,8 @@ public class MovieTicketSystem {
 				System.out.println("(7) Access Movie Sales (Employee Only)");
 			}
 			System.out.println("(0) Quit");
+			
+			//printing log in status
 			if (loggedInAccount == null) {
 				System.out.println("You are not logged in");
 			} else {
@@ -73,9 +75,11 @@ public class MovieTicketSystem {
 				Scanner input = new Scanner(System.in);
 				int choice = input.nextInt();
 				if (choice == 0) {
+					//Quit
 					System.out.println("Thank you for using the Movie Theater. Goodbye!");
 					break;
 				} else if (choice == 1) {
+					//Register account
 					if (loggedInAccount != null){
 						System.out.println("User already logged in");
 						continue;
@@ -84,9 +88,13 @@ public class MovieTicketSystem {
 							System.out.print("Sorry, the system cannot add any more account");
 							continue;
 						}
+						
+						//reading email address
 						System.out.print("Enter Email Address: ");
 						Scanner temp = new Scanner(System.in);
 						String emailaddress = temp.nextLine();
+						
+						//printing the new account's ID
 						int createID = accountCount;
 						System.out.print("Your account ID is: ");
 						System.out.println(createID);
@@ -95,10 +103,12 @@ public class MovieTicketSystem {
 						continue;
 					}
 				} else if (choice == 2){
+					//Login
 					if (loggedInAccount != null){
 						System.out.println("You are already logged in");
 						continue;
 					} else{
+						//reading account ID
 						System.out.print("Enter your account ID: ");
 						Scanner temp1 = new Scanner(System.in);
 						int customerID = temp1.nextInt();
@@ -106,6 +116,8 @@ public class MovieTicketSystem {
 							System.out.println("Invalid account ID");
 							continue;
 						}
+						
+						//reading email address
 						System.out.print("Enter Email Address: ");
 						Scanner temp2 = new Scanner(System.in);
 						String emailaddress = temp2.nextLine();
@@ -123,6 +135,7 @@ public class MovieTicketSystem {
 					}
 
 				} else if (choice == 3){
+					//Logout
 					if (loggedInAccount == null) {
 						System.out.println("You are not logged in");
 						continue;
@@ -132,6 +145,7 @@ public class MovieTicketSystem {
 						continue;
 					}
 				} else if (choice == 4){
+					//Purchase ticket
 					if (loggedInAccount == null) {
 						System.out.println("You are not logged in. Please log in first.");
 						continue;
@@ -140,6 +154,8 @@ public class MovieTicketSystem {
 							System.out.println("You cannot order more than 3 tickets");
 							continue;
 						}
+						
+						//reading movie choice
 						System.out.println();
 						for (int i = 0; i < MOVIE_NUM; i++) {
 							System.out.print(i + ") ");
@@ -154,6 +170,7 @@ public class MovieTicketSystem {
 							continue;
 						}
 						
+						//reading showtime choice
 						System.out.println();
 						theaters[moviechoice].printSchedule();
 						System.out.print("Please choose a showtime from above (Enter numbers only): ");
@@ -164,6 +181,7 @@ public class MovieTicketSystem {
 							continue;
 						}
 						
+						//reading seat choice
 						Showtime[] showtimes = theaters[moviechoice].getSchedule();
 						Time time = showtimes[showtimechoice].getTime();
 						System.out.println();
@@ -177,6 +195,7 @@ public class MovieTicketSystem {
 							continue;
 						}
 						
+						//ordering ticket
 						Seat orderedseat = theaters[moviechoice].getSeat(seatchoice);
 						if (loggedInAccount.orderTicket(showtimes[showtimechoice], orderedseat)) {
 							movies[moviechoice].addProfit(DEFAULT_TICKET_COST);
@@ -185,6 +204,7 @@ public class MovieTicketSystem {
 					}
 					
 				} else if (choice == 5) {
+					//Cancel ticket order
 					if (loggedInAccount == null) {
 						System.out.println("You are not logged in. Please log in first.");
 						continue;
@@ -193,6 +213,8 @@ public class MovieTicketSystem {
 							System.out.println("You don't have any ticket order right now");
 							continue;
 						}
+						
+						//reading ticket choice
 						System.out.println();
 						loggedInAccount.printTickets();
 						System.out.print("Type the ID of ticket you want to cancel: ");
@@ -207,6 +229,7 @@ public class MovieTicketSystem {
 					}
 					
 				} else if (choice == 6) {
+					//Print your ticket orders
 					if (loggedInAccount == null) {
 						System.out.println("You are not logged in. Please log in first.");
 						continue;
@@ -216,12 +239,15 @@ public class MovieTicketSystem {
 						continue;
 					}
 				} else if (choice == 7 && loggedInAccount != null && loggedInAccount.getIsEmployee()) {
+					//Access movie sales
 					System.out.println();
 					for (int i = 0; i < MOVIE_NUM; i++) {
 						System.out.print(i + ") ");
 						movies[i].printMovie();
 						System.out.println();
 					}
+					
+					//reading movie choice
 					System.out.print("Please choose a film from above (Enter numbers only): ");
 					Scanner temp7 = new Scanner(System.in);
 					int moviechoice = temp7.nextInt();
@@ -229,6 +255,8 @@ public class MovieTicketSystem {
 						System.out.println("You have entered an invalid input");
 						continue;
 					}
+					
+					//printing movie
 					System.out.println();
 					movies[moviechoice].printMovie();
 					System.out.println("Total tickets sold: " + movies[moviechoice].getTicketSales());
