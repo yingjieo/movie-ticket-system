@@ -1,3 +1,8 @@
+/*
+ * The Seat class, representing the seat the customer will book in a theater
+ * Stores the seat's number and what theater it is located in.
+ * Also stores a list of reservations for the seat, as the same seat can be reserved at different times.
+ */
 public class Seat {
 	private int seatID;
 	private int theaterID;

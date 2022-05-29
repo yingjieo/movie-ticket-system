@@ -1,21 +1,27 @@
-
-public class Customer {
+/*
+ * The Account class, which represents the customer and employee
+ * Accounts are used to access the theater's features, such as ordering a ticket.
+ * To register an account, the user needs an email. They are automatically assigned an ID after the account is created.
+ * The Account class also keeps tracks of the account's ticket orders.
+ * Employees have special accounts which allow them to access movie sales records.
+*/
+public class Account {
 	private int accountID;
 	private String email;
 	private Ticket[] ticketOrders;
-	private String paymentMethod;
 	private int orderNum;
+	private boolean isEmployee; // determines whether the account is an admin account or not
 	private static int MAX_ORDERS = 3; // max number of tickets a customer can order
 	
-	public Customer(int id, String email) {
+	public Account(int id, String email, boolean isEmployee) {
 		if (id < 0) {
             throw new IllegalArgumentException("Account ID cannot be negative");
         }
 		this.accountID = id;
 		this.email = email;
 		this.ticketOrders = new Ticket[MAX_ORDERS];
-		this.paymentMethod = "";
 		this.orderNum = 0;
+		this.isEmployee = isEmployee;
 		
 	}
 	
@@ -31,20 +37,8 @@ public class Customer {
 		return orderNum;
 	}
 	
-	public boolean updatePaymentMethod(String paymentMethod) {
-		// customer can update payment method. returns true if valid payment method added
-		String[] validPaymentMethods = {"credit", "debit"};
-		
-		String method = paymentMethod.toLowerCase();
-		
-		for (int i = 0; i < validPaymentMethods.length; i++) {
-			if (method.equals(validPaymentMethods[i])) {
-				paymentMethod = method;
-				return true;
-			}
-		}
-		
-		return false;
+	public boolean getIsEmployee() {
+		return isEmployee;
 	}
 	
 	public boolean updateEmail(String newEmail) {
@@ -52,6 +46,13 @@ public class Customer {
 		return true;
 	}
 	
+	/*
+	 * Ordering a ticket
+	 * When a valid input is given, the system checks if the account does not already have a max number of ticket orders.
+	 * Returns false if the purchase failed, such as invalid input, max number of tickets bought,
+	 * or the seat chosen has already been reserved (this is checked in seat.addReservation()).
+	 * Returns true if the purchase was successful.
+	 */
 	public boolean orderTicket(Showtime showtime, Seat seat) {
 		if (showtime == null) {
 			System.out.println("Showtime input is null.");
@@ -77,6 +78,12 @@ public class Customer {
 		return false;
 	}
 	
+	/*
+	 * Cancel an order
+	 * User enters the ID of the ticket they wish to cancel.
+	 * Returns false if the ticket cancellation failed.
+	 * Returns true if ticket cancellation was a success.
+	 */
 	public boolean cancelTicket(int ticketID) {
 		if (ticketID < 0 || ticketID >= ticketOrders.length) {
 			System.out.println("TicketID is invalid.");
@@ -112,6 +119,9 @@ public class Customer {
 		return false;
 	}
 	
+	/*
+	 * Prints information of all ticket orders on the account
+	 */
 	public void printTickets() {
 		System.out.println("Account " + accountID + " Ticket Orders");
 		for (int i = 0; i < ticketOrders.length; i++) {

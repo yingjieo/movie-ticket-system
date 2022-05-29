@@ -1,3 +1,8 @@
+/*
+ * The Ticket class, representing the ticket the customer purchases
+ * When the customer purchases a ticket, it is automatically assigned an ID.
+ * The ticket stores information about the showtime, as well as the seat reserved.
+ */
 public class Ticket {
 	
 	private int ticketID;
@@ -34,6 +39,7 @@ public class Ticket {
 		return cost;
 	}
 	
+	// prints the ticket information
 	public void printTicket() {
 		System.out.println("Ticket " + ticketID);
 		this.showtime.printShowtime();
